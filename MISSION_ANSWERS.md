@@ -143,8 +143,8 @@ Content-Type: application/json
 ## Part 3: Cloud Deployment
 
 ### Exercise 3.1 / 3.2: Main Cloud Deployment & Config Comparison
-- Platform: <!-- Điền sau khi deploy xong (Render hoặc Railway) -->
-- Public URL: <!-- Điền URL public sau khi deploy -->
+- Platform: **Render** (Web Service chạy Docker từ `06-lab-complete/` + Render Key Value Redis)
+- Public URL: `https://k5-l3a-day14-tranmanhhung-2a202603496.onrender.com`
 - Screenshots: `screenshots/dashboard.png`, `screenshots/running.png`, `screenshots/test.png`
 
 **So sánh `railway.toml` và `render.yaml` (khác nhau chỗ nào & vì sao):**

@@ -1,17 +1,17 @@
 # Deployment Information
 
 ## Public URL
-<!-- Điền URL sau khi deploy ở CP6, ví dụ: https://your-agent.up.railway.app -->
+https://k5-l3a-day14-tranmanhhung-2a202603496.onrender.com
 
 ## Platform
-<!-- Railway hoặc Render -->
+Render (Web Service chạy Docker từ `06-lab-complete/` + Render Key Value / Redis)
 
 ## Test Commands (Self-Test CP6 — không lộ API key thật)
 
 ```bash
-# Đặt biến môi trường trên máy local khi test (KHÔNG ghi key thật vào file này):
-# export BASE="https://your-agent.up.railway.app"
-# export AGENT_API_KEY="<YOUR_SECRET_API_KEY>"
+export BASE="https://k5-l3a-day14-tranmanhhung-2a202603496.onrender.com"
+# Nhập key đã đặt trên Render Dashboard (không lưu trong repo):
+read -s -p "AGENT_API_KEY: " AGENT_API_KEY && echo ""
 
 # 1. Liveness check (Expected: 200)
 curl -sS -o /dev/null -w '%{http_code}\n' "$BASE/health"
@@ -32,13 +32,12 @@ curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$BASE/ask" \
 ```
 
 ## Environment Variables Set on Platform
-- `PORT` (hoặc do nền tảng tự cấp)
-- `REDIS_URL` (trỏ tới Redis service trên cloud, giá trị thực tế đặt trên Dashboard)
-- `AGENT_API_KEY` (đặt trực tiếp trên Dashboard, không lưu trong repo)
-- `RATE_LIMIT_PER_MINUTE`
-- `DAILY_BUDGET_USD`
-- `ENVIRONMENT`
-- `LOG_LEVEL`
+- `PORT` (do Render tự động cấp, mặc định `10000`)
+- `REDIS_URL` (Internal Key Value URL trỏ tới Redis service cùng region trên Render)
+- `AGENT_API_KEY` (tạo bằng nút Generate trực tiếp trên Render Dashboard, không lưu trong repo)
+- `ENVIRONMENT` (`production`)
+- `RATE_LIMIT_PER_MINUTE` (`10`)
+- `DAILY_BUDGET_USD` (`10.0`)
 
 ## Screenshots
 - [Deployment dashboard](screenshots/dashboard.png)
